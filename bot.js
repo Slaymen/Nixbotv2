@@ -85,9 +85,9 @@ client.on("message", async message => {
   }
   
           if(command === "pfp") {
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("Here Is Your Profile Image: <${message.author.displayAvatarURL}>");
+    elseif (!message.mentions.users.size) {
+        return message.channel.send(`Your avatar: <${message.author.displayAvatarURL}>`);
+    }
   }
   
   if(command === "say") {
