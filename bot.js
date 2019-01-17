@@ -58,23 +58,40 @@ client.on("message", async message => {
     const m = await message.channel.send("Ping?");
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
-  
-    if(command === "helpold") {
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("***COMMANDS | [ .kick, .ban, .purge, .listvip, .upgrade ]***");
-  }
+
   if(command === "help") {
 
     let botembed = new Discord.RichEmbed()
+    let bicon = bot.user.displayAvatarURL;
     .setDescription("COMMANDS;")
     .setColor("#15f153")
+    .setThumbnail(bicon)
     .addField(".help")
     .addField(".kick")
     .addField(".ban")
     .addField(".purge")
     .addField(".listvip")
     .addField(".upgrade");
+    
+    return message.channel.send(botembed);
+  }
+  
+    if(command === "info") {
+
+                .setAuthor(`NIX`, client.user.avatarURL)
+                .addField(`Version`, `1.0`, true)
+                .addField(`Node JS`, `8.11.3`, true)
+                .addField(`Library`, `[discord.js](https://discord.js.org/#/)`, true)
+                .addField(`Uptime`, `${uptime}`, true)
+                .addField(`Servers`, `${client.guilds.size}`, true)
+                .addField(`Users`, `${client.users.size}`, true)
+                .addField(`Website`, `[nixbot.tk](https://nixbot.tk/)`, true)
+                .addField(`Discord`, `[https://discord.gg/v2ft8xD](https://discord.gg/v2ft8xD)`, true)
+                .addField(`Invite`, `[Not available yet](https://discord.gg/)`, true)
+                .addField(`Developer`, `SlayzNetwork#9316`, true)
+                .setFooter("Prefix: ! | This bot is still under construction", "https://a.ppy.sh/5414370_1530431526.jpeg")
+                .setTimestamp()
+                .setColor(0xFF0092);
     
     return message.channel.send(botembed);
   }
