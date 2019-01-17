@@ -84,12 +84,6 @@ client.on("message", async message => {
     const m = await message.channel.send("VIP SERVERS | Strucid, SlayzNetwork, NixTestingHANGOUT");
   }
   
-          if(command === "pfp") {
-    elseif (!message.mentions.users.size) {
-        return message.channel.send(`Your avatar: <${message.author.displayAvatarURL}>`);
-    }
-  }
-  
   if(command === "say") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
