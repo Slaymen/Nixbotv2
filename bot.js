@@ -62,7 +62,7 @@ client.on("message", async message => {
     if(command === "help") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("***COMMANDS | [ .kick, .ban, .purge, .listvip, .upgrade ]***");
+    const m = await message.channel.send("***COMMANDS | [ .kick, .ban, .purge, .listvip, .upgrade, .pfp ]***");
   }
   
       if(command === "upgrade") {
@@ -82,6 +82,12 @@ client.on("message", async message => {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
     const m = await message.channel.send("VIP SERVERS | Strucid, SlayzNetwork, NixTestingHANGOUT");
+  }
+  
+          if(command === "pfp") {
+    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
+    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+    const m = await message.channel.send("Here Is Your Profile Image: <${message.author.displayAvatarURL}>");
   }
   
   if(command === "say") {
