@@ -59,17 +59,22 @@ client.on("message", async message => {
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
   
-    if(command === "help") {
+    if(command === "helpold") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("***COMMANDS | [ .kick, .ban, .purge, .listvip, .upgrade, .pfp ]***");
+    const m = await message.channel.send("***COMMANDS | [ .kick, .ban, .purge, .listvip, .upgrade ]***");
   }
-  if(command === "test") {
+  if(command === "help") {
 
     let botembed = new Discord.RichEmbed()
-    .setDescription("Slayz")
+    .setDescription("COMMANDS;")
     .setColor("#15f153")
-    .addField("Test")
+    .addField(".help")
+    .addField(".kick")
+    .addField(".ban")
+    .addField(".purge")
+    .addField(".listvip")
+    .addField(".upgrade")    
     
     return message.channel.send(botembed);
   }
