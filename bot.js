@@ -64,6 +64,24 @@ client.on("message", async message => {
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
     const m = await message.channel.send("***COMMANDS | [ .kick, .ban, .purge, .listvip, .upgrade, .pfp ]***");
   }
+  if(command === "test") {
+    module.exports.run = async (bot, message, args) => {
+    let sicon = message.guild.iconURL;
+    let serverembed = new Discord.RichEmbed()
+    .setDescription("Server Information")
+    .setColor("#15f153")
+    .setThumbnail(sicon)
+    .addField("Server Name", message.guild.name)
+    .addField("Created On", message.guild.createdAt)
+    .addField("You Joined", message.member.joinedAt)
+    .addField("Total Members", message.guild.memberCount);
+
+    message.channel.send(serverembed);
+}
+
+module.exports.help = {
+  name:"serverinfo"
+}
   
       if(command === "upgrade") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
