@@ -74,7 +74,7 @@ client.on("message", async message => {
     .addField(".ban")
     .addField(".purge")
     .addField(".listvip")
-    .addField(".upgrade")    
+    .addField(".upgrade");
     
     return message.channel.send(botembed);
   }
