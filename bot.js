@@ -59,6 +59,31 @@ client.on("message", async message => {
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
   
+    if(command === "help") {
+    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
+    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+    const m = await message.channel.send("***COMMANDS | [ .kick, .ban, .purge, .listvip, .upgrade ]***");
+  }
+  
+      if(command === "upgrade") {
+    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
+    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+    const m = await message.channel.send("Fetching Database Service...");
+    m.edit(`Fetching Database Service...`);
+    m.edit(`Fetching Database Service..`);
+    m.edit(`Fetching Database Service...`);
+    m.edit(`Fetching Database Service..`);
+    m.edit(`Fetching Database Service...`);
+    m.edit(`Fetching Database Service..`);
+    m.edit(`:red_circle: Sorry This Server Is Not On The Upgrade List! :red_circle:`);
+  }
+  
+        if(command === "viplist") {
+    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
+    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+    const m = await message.channel.send("VIP SERVERS | Strucid, SlayzNetwork, NixTestingHANGOUT");
+  }
+  
   if(command === "say") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
