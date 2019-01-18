@@ -16,19 +16,19 @@ client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
+  client.user.setActivity(`Prefix| . We are on ${client.guilds.size} servers`);
 });
 
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
+  client.user.setActivity(`Prefix| . We are on ${client.guilds.size} servers`);
 });
 
 client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
+  client.user.setActivity(`Prefix| . We are on ${client.guilds.size} servers`);
 });
 
 
@@ -52,24 +52,6 @@ client.on("message", async message => {
   
   // Let's go with a few common example commands! Feel free to delete or change those.
   
-  if(command === "info") {
-    let botembed = new Discord.RichEmbed()
-                .setAuthor(`Hibiki | 響`, client.user.avatarURL)
-                .addField(`Version`, `1.0`, true)
-                .addField(`Node JS`, `8.11.3`, true)
-                .addField(`Library`, `[discord.js](https://discord.js.org/#/)`, true)
-                .addField(`Uptime`, `${uptime}`, true)
-                .addField(`Servers`, `${client.guilds.size}`, true)
-                .addField(`Users`, `${client.users.size}`, true)
-                .addField(`Website`, `[hibikimoe.xyz](https://hibikimoe.xyz/)`, true)
-                .addField(`Discord`, `[hibikimoe.xyz/discord](https://discord.gg/NNwzMm)`, true)
-                .addField(`Invite`, `[Not available yet](https://discord.gg/NNwzMm)`, true)
-                .addField(`Developer`, `Steve2312#0431`, true)
-                .setFooter("Prefix: ! | This bot is still under construction", "https://a.ppy.sh/5414370_1530431526.jpeg")
-                .setTimestamp()
-                .setColor(0xFF0092);
-    return message.channel.send(botembed);
-  }
   
     if(command === "say") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
