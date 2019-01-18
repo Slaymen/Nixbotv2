@@ -59,21 +59,6 @@ client.on("message", async message => {
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
   
-  if(command === "help") {
-
-    let botembed = new Discord.RichEmbed()
-    let bicon = bot.user.displayAvatarURL;
-    .setDescription("COMMANDS;")
-    .setColor("#15f153")
-    .setThumbnail(bicon)
-    .addField(".help")
-    .addField(".kick")
-    .addField(".ban")
-    .addField(".purge");
-    
-    return message.channel.send(botembed);
-  }
-  
   if(command === "say") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
