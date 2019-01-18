@@ -16,7 +16,7 @@ client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
-  client.user.setActivity(`nixbot.tk | We are on ${client.guilds.size} discord servers`);
+  client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
 
 client.on("guildCreate", guild => {
@@ -58,7 +58,7 @@ client.on("message", async message => {
     const m = await message.channel.send("Ping?");
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
-
+  
   if(command === "help") {
 
     let botembed = new Discord.RichEmbed()
@@ -69,30 +69,9 @@ client.on("message", async message => {
     .addField(".help")
     .addField(".kick")
     .addField(".ban")
-    .addField(".purge")
-    .addField(".listvip")
-    .addField(".upgrade");
+    .addField(".purge");
     
     return message.channel.send(botembed);
-  }
-  
-      if(command === "upgrade") {
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("Fetching Database Service...");
-    m.edit(`Fetching Database Service...`);
-    m.edit(`Fetching Database Service..`);
-    m.edit(`Fetching Database Service...`);
-    m.edit(`Fetching Database Service..`);
-    m.edit(`Fetching Database Service...`);
-    m.edit(`Fetching Database Service..`);
-    m.edit(`:red_circle: Sorry This Server Is Not On The Upgrade List! :red_circle:`);
-  }
-  
-        if(command === "viplist") {
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("VIP SERVERS | Strucid, SlayzNetwork, NixTestingHANGOUT");
   }
   
   if(command === "say") {
