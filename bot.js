@@ -52,12 +52,35 @@ client.on("message", async message => {
   
   // Let's go with a few common example commands! Feel free to delete or change those.
   
-  if(command === "ping") {
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("Ping?");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+  if(command === "info") {
+    let botembed = new Discord.RichEmbed()
+                .setAuthor(`Hibiki | 響`, client.user.avatarURL)
+                .addField(`Version`, `1.0`, true)
+                .addField(`Node JS`, `8.11.3`, true)
+                .addField(`Library`, `[discord.js](https://discord.js.org/#/)`, true)
+                .addField(`Uptime`, `${uptime}`, true)
+                .addField(`Servers`, `${client.guilds.size}`, true)
+                .addField(`Users`, `${client.users.size}`, true)
+                .addField(`Website`, `[hibikimoe.xyz](https://hibikimoe.xyz/)`, true)
+                .addField(`Discord`, `[hibikimoe.xyz/discord](https://discord.gg/NNwzMm)`, true)
+                .addField(`Invite`, `[Not available yet](https://discord.gg/NNwzMm)`, true)
+                .addField(`Developer`, `Steve2312#0431`, true)
+                .setFooter("Prefix: ! | This bot is still under construction", "https://a.ppy.sh/5414370_1530431526.jpeg")
+                .setTimestamp()
+                .setColor(0xFF0092);
+    return;
   }
+  
+    if(command === "say") {
+    // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
+    // To get the "message" itself we join the `args` back into a string with spaces: 
+    const sayMessage = args.join(" ");
+    // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
+    message.delete().catch(O_o=>{}); 
+    // And we get the bot to say the thing: 
+    message.channel.send(sayMessage);
+  }
+
   
   if(command === "say") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
