@@ -68,7 +68,7 @@ client.on("message", async message => {
                 .setFooter("Prefix: ! | This bot is still under construction", "https://a.ppy.sh/5414370_1530431526.jpeg")
                 .setTimestamp()
                 .setColor(0xFF0092);
-    return;
+    return message.channel.send(botembed);
   }
   
     if(command === "say") {
